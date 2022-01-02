@@ -1,0 +1,32 @@
+clear; clc
+load data1.mat; % data
+
+% %% 一个小例子
+% figure(1)
+% plot(data(:,1), data(:,2),'o')
+% xlabel("x的值")
+% ylabel('y的值')
+
+%% 求解最小二乘法
+%% 公式记笔记
+clear; clc
+load data1.mat
+x = data(:,1);
+y = data(:,2);
+figure(2)
+plot(data(:,1),data(:,2),'o')
+xlabel('x的值')
+ylabel('y的值')
+n = size(data(:,1),1)
+
+hold on
+grid on
+
+f = @(x) k*x+b
+fplot(f,[2.5,7])
+
+
+
+
+
+% clea
