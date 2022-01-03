@@ -220,9 +220,8 @@ if isError == 0 % 表示没有发生错误
         end
     end % 结果计算决策
     
-    %% 绘制相对残差和级比偏差的图形(注意：因为是对原始数据的拟合效果评估吗, 所以三个模型计算得到的参数是一样的)
-    %% 所以这里仅仅用coefficient()函数进行参数计算
-    figure(4);
+        %% 绘制相对残差和级比偏差的图形(注意：因为是对原始数据的拟合效果评估，所以三个模型都是一样的哦~~~)
+    figure(4)
     subplot(2,1,1)  % 绘制子图（将图分块）
     plot(year(2:end), relative_residuals,'*-'); grid on;   % 原数据中的各时期和相对残差
     legend('相对残差'); xlabel('年份');
@@ -232,39 +231,79 @@ if isError == 0 % 表示没有发生错误
     legend('级比偏差'); xlabel('年份');
     set(gca,'xtick',year(2:1:end))  % 设置x轴横坐标的间隔为1
     disp(' ')
-    disp('====下面将输出对原数据拟合的评价结果====')
+    disp('****下面将输出对原数据拟合的评价结果***')
     
-    %% 残差检验
-    average_relative_residuals = mean(relative_residuals);  % 计算平均相对残差 mean函数用来均值
-    disp(strcat('平均相对残差为',num2str(average_relative_residuals)))
-    if average_relative_residuals<0.1
-        disp('残差检验的结果表明：该模型对原数据的拟合程度非常不错')
-    elseif average_relative_residuals<0.2
-        disp('残差检验的结果表明：该模型对原数据的拟合程度达到一般要求')
-    else
-        disp('残差检验的结果表明：该模型对原数据的拟合程度不太好，建议使用其他模型预测')
-    end
-    
-    %% 级比偏差检验
-    average_eta = mean(eta);   % 计算平均级比偏差
-    disp(strcat('平均级比偏差为',num2str(average_eta)))
-    if average_eta<0.1
-        disp('级比偏差检验的结果表明：该模型对原数据的拟合程度非常不错')
-    elseif average_eta<0.2
-        disp('级比偏差检验的结果表明：该模型对原数据的拟合程度达到一般要求')
-    else
-        disp('级比偏差检验的结果表明：该模型对原数据的拟合程度不太好，建议使用其他模型预测')
-    end
-    disp(' ')
-    disp('------------------------------------------------------------')
-    
-    %% 绘制最终的预测效果图
-    figure(5)  % 下面绘图中的符号m:洋红色 b:蓝色
-    title("原始图像和预测图像");
-    plot(year,x0,'-o',  year,x0_hat,'-*m',  year(end)+1:year(end)+predict_num,result,'-*b' );   grid on;
-    hold on;
-    plot([year(end),year(end)+1],[x0(end),result(1)],'-*b')
-    legend('原始数据','拟合数据','预测数据')  % 注意：如果lengend挡着了图形中的直线，那么lengend的位置可以自己手动拖动
-    set(gca,'xtick',[year(1):1:year(end)+predict_num]);  % 设置x轴横坐标的间隔为1 % 这里的1也是可以修改的. 可以修改间隔,看起来更好看一些,
-    xlabel('年份');  ylabel('排污总量');  % 给坐标轴加上标签, 这个地方要改
-end % 结束
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
