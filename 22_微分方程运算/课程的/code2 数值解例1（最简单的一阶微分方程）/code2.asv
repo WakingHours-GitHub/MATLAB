@@ -21,13 +21,12 @@ plot(x,y,'b-')  % 蓝色的直线
 
 
 %%  设定相对误差和绝对误差，这样可以提高微分方程数值解的精度
-options = odeset('reltol',1e-4,'abstol',1e-8); % 设置参数, 越小精度就越高
+options = odeset('reltol',1e-4,'abstol',1e-8);
 [x,y] = ode45('df1',[0,2],3,options);
 
 
 %%  如果觉得x的间隔不够小，我们可以指定要求解的位置
 [x,y] = ode45('df1',[0:0.001:2],3,options);
-% 我们可以自己设置间隔
 
 
 % Dormand, J. R. and P. J. Prince, “A family of embedded Runge-Kutta formulae,” J. Comp. Appl. Math., Vol. 6, 1980, pp. 19–26.
