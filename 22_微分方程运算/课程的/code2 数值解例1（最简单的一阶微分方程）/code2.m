@@ -1,33 +1,28 @@
 %% 调用ode45函数求解微分方程df1，自变量为x，范围为[0,2],  初始值y(0)=3 ; 因变量为y
 clear;clc
-% 我们可以是使用doc ode来查看各种求解器
 [x,y] = ode45('df1', [0, 2], 3);  % [x,y] = ode45(@df1,[0,2],3);
 % x，y是一一对应的
-% [x,y] = ode23('df1',[0,2],3); % 分割的点少
-% [x,y] = ode113('df1',[0,2],3); % 自动分解
-% [x,y] = ode15s('df1',[0,2],3); % 刚性, 
+% [x,y] = ode23('df1',[0,2],3);
+% [x,y] = ode113('df1',[0,2],3);
+% [x,y] = ode15s('df1',[0,2],3); % 刚性
 figure(1)
 plot(x,y,'r*-')  % 画出x和y的函数图像，用红色的直线和*标记
 
 
 
 %%  下面我们直接画出微分方程的解析解的图像进行对比
-% 对比一下
 hold on
 x = 0:0.01:2;
-y = exp(x)+2*x+2; % 这是用dslove求解得到的结果
+y = exp(x)+2*x+2;
 plot(x,y,'b-')  % 蓝色的直线
 % 从图中可以看出，ode45函数得到的数值解的精度很高。
 
-
 %%  设定相对误差和绝对误差，这样可以提高微分方程数值解的精度
-options = odeset('reltol',1e-4,'abstol',1e-8); % 设置参数, 越小精度就越高
+options = odeset('reltol',1e-4,'abstol',1e-8);
 [x,y] = ode45('df1',[0,2],3,options);
-
 
 %%  如果觉得x的间隔不够小，我们可以指定要求解的位置
 [x,y] = ode45('df1',[0:0.001:2],3,options);
-% 我们可以自己设置间隔
 
 
 % Dormand, J. R. and P. J. Prince, “A family of embedded Runge-Kutta formulae,” J. Comp. Appl. Math., Vol. 6, 1980, pp. 19–26.
