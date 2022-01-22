@@ -10,19 +10,14 @@ subs(x) % 代替, 就是将里面的未知量, 替换成工作区同名的变量
 
 % 初始人口为1000，画出50年且增长率分别为0.5%，1%，1.5% 一直到5%的人口变化曲线
 figure(1)
-
+title(
 x0 = 1000;
 for i = 1:10
     r = 0.005*i;
     xx = subs(x);
     fplot(xx,[0,50])   % fplot函数可以绘制符号表达式的图形
-%     legend("r=" + num2str(r*i))
     hold on
 end
-title("Malthus")
-xlabel("year")
-ylabel("population")
-
 
 
 %% 阻滞增长模型（logistic模型）
@@ -34,7 +29,6 @@ t0 = 0;
 x0 = 1000;
 xm = 10000;
 r = 0.05;
-% 替换
 xx = subs(x);    %  10000/(exp(log(9) - t/20) + 1)
 fplot(xx,[0,200])  
 

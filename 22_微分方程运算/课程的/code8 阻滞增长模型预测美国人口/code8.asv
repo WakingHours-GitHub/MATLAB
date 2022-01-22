@@ -14,12 +14,11 @@ cftool  % 拟合工具箱
 % (10) 在现在这个文件中调用这个函数得到参数的拟合值和预测的效果
 [fitresult, gof] = createFit(year, population) 
 % 其中fitresult是模型的一些结果, 包括, 模型, 估计的参数
-% gof是模型评估的指标, 包括sse, r_square 等等.
-t = 2001:2030; % year
+% gof
+t = 2001:2030;
 xm = 342.4;   
 r =  0.02735;
 predictions = xm./(1+(xm./3.9-1).*exp(-r.*(t-1790)));  % 计算预测值（注意这里要写成点乘和点除）
-
 figure(2)
 plot(year,population,'o',t,predictions,'.')  % 绘制预测结果图
 disp(predictions)  % 预测的数值
