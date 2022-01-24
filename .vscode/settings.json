@@ -1,0 +1,10 @@
+{
+    // 提供代码高亮
+    "matlab.mlintpath": "F:\\MATLAB2020b\\bin\\win64\\mlint.exe",
+    "matlab.linterEncoding": "gb2312",
+    "[matlab]": {
+        "files.encoding": "gb2312",
+        "files.autoGuessEncoding": false,
+    },
+    "files.associations": {"*.m": "matlab"} 
+}
