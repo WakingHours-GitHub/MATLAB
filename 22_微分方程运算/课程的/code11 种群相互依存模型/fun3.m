@@ -7,6 +7,8 @@ function dx=fun3(t,x)   % 大家可以修改里面的参数，来看结果的变化
     sigma1=0.2;  sigma2=2;   
 %     sigma1=5;  sigma2=5; 
 %     sigma1=10;  sigma2=10;  % 这时候甲乙两个种群都能活下去了 
+% 只有当sigma1, sigma2非常大的时候, 这两个种群才会活, 
+% 并且, 时间也需要改变, 改的小一点, 否则保存.
     dx = zeros(2,1);
     dx(1) = r1*x(1)*(-1-x(1)/N1+sigma1*x(2)/N2);
     dx(2) = r2*x(2)*(-1-x(2)/N2+sigma2*x(1)/N1);

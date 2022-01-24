@@ -7,8 +7,9 @@ function dx=fun1(t,x)   % 大家可以修改里面的参数，来看结果的变化
     sigma1=0.2;  sigma2=2;   
 %     sigma1=0.2;  sigma2=0.8;
 % 注意：当sigma1*sigma2>1时，微分方程不稳定，matlab计算数值解时可能会报错，这时候需要调整计算的范围。
+    % 此时matlab就求解不出来了, 因为方程可能呈指数级增长, 所以我们需要改小自变量的范围
 %     sigma1=3;  sigma2=3;   
-    dx = zeros(2,1);
+    dx = zeros(2,1); % 初始化
     dx(1) = r1*x(1)*(1-x(1)/N1+sigma1*x(2)/N2);
     dx(2) = r2*x(2)*(-1-x(2)/N2+sigma2*x(1)/N1);
 end
